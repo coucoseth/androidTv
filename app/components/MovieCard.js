@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {useFocusable} from '@noriginmedia/norigin-spatial-navigation';
 
-const MovieCard = () => {
+const MovieCard = ({name}) => {
   const {ref, focused, focusSelf} = useFocusable();
 
   return (
     <TouchableOpacity
+      onPress={() => console.log('button pressed', name, focused)}
       ref={ref}
       onFocus={focusSelf}
       style={focused ? styles.buttonFocused : styles.button}>
